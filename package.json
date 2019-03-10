@@ -1,0 +1,24 @@
+{
+  "name": "grpc-chat",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node src/server/server.js",
+    "client": "node src/client/client.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-nouchi/grpc-chat.git"
+  },
+  "author": "r-nouchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r-nouchi/grpc-chat/issues"
+  },
+  "homepage": "https://github.com/r-nouchi/grpc-chat#readme",
+  "dependencies": {
+    "grpc": "^1.19.0",
+    "@grpc/proto-loader": "^0.1.0"
+  }
+}

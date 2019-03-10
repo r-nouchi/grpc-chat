@@ -1,0 +1,13 @@
+import public "message.proto";
+
+syntax = "proto3";
+
+package chat;
+
+service ChatService {
+  rpc InsertRoom (Room) returns (Room);
+  rpc ListRooms (Empty) returns (RoomList);
+  rpc InsertMessage (Message) returns (Message);
+  rpc ListMessages (Int32Id) returns (MessageList);
+  rpc WatchRoom (Int32Id) returns (stream Message);
+}
