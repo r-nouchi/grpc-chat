@@ -3,37 +3,60 @@ syntax = "proto3";
 package chat;
 
 service ChatService {
+  // チャットルームを作成する
   rpc InsertRoom (Room) returns (Room);
+  // チャットルーム一覧を取得する
   rpc ListRooms (Empty) returns (RoomList);
+  // メッセージを作成する
   rpc InsertMessage (Message) returns (Message);
+  // メッセージ一覧を取得する
   rpc ListMessages (Int32Id) returns (MessageList);
+  // 新規メッセージの通知を受け取るチャットルームを指定する
   rpc WatchRoom (Int32Id) returns (stream Message);
 }
 
+// 空レスポンス
 message Empty {}
+
+// ID
 message Int32Id { 
     int32 id = 1; 
 }
 
+// チャットルーム
 message Room {
+  // チャットルームID
   int32 id = 1;
+  // チャットルーム名
   string title = 2;
+  // 作成者
   string createdBy = 3;
+  // 作成日時
   int64 createdAt = 4;
 }
 
+// チャットルームの一覧
 message RoomList { 
-    repeated Room rooms = 1; 
+  // チャットルームの配列
+  repeated Room rooms = 1; 
 }
 
+// チャットルームに投稿されたメッセージ
 message Message {
+  // ID
   int32 id = 1;
+  // メッセージ本文
   string text = 2;
+  // 作成者
   string createdBy = 3;
+  // 作成日時
   int64 createdAt = 4;
+  // 投稿されたチャットルームのID
   int32 room = 5;
 }
 
+// メッセージの一覧
 message MessageList { 
-    repeated Message messages = 1; 
+  // メッセージの配列
+  repeated Message messages = 1; 
 }
