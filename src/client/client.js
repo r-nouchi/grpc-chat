@@ -2,7 +2,7 @@ const path = require("path");
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 
-const PROTO_PATH = path.join(__dirname, "../../proto/service.proto");
+const PROTO_PATH = path.join(__dirname, "../../proto/chatservice.proto");
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   keepCase: true,
   longs: String,
